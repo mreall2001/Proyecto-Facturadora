@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<title>Facturadora</title>
+<links>
+   <?php
+    include "includes/cabezera.html";
+   ?>
+  </links>
+</head>
+<body>
+  <center>
+<h1>Lista de facturas<h1>
+  <center>
+
 <?php
 include "includes/db.php";
 ?>
@@ -34,43 +53,47 @@ if(isset($_POST['enviar'])){
     $stm->bindParam(6, $pro_cliente);
     $stm->bindParam(7, $cd_cliente);
     $stm->bindParam(8, $iden_cliente);
-    $stm->bindParam(9, $producto);
+    $stm->bindParam(9, $podructo);
     $stm->bindParam(10, $importe);
     $stm->bindParam(11, $iva);
     $stm->execute();
-    header('Location: listado.php');
+    $factura = $db->lastInsertRowID();
+    header('Location: factura.php?id='.$factura);
   }
   else  {
       $stm = $db->prepare("SELECT * FROM facturas");
       $res = $stm->execute();
 $res = $db->query('SELECT * FROM facturas');
+?>
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Concepto</th>
+      <th scope="col">Factura</th>
+    </tr>
+  </thead>
+<?php
 while ($row = $res->fetchArray()) {
-    echo $row['id_factura'];
-    echo '   ';
-    echo $row['fecha'];
-    echo '   ';
-    echo $row['nom_cliente']; 
-    echo '   ';
-    echo $row['apellidos_cliente']; 
-    echo '   ';
-    echo $row['direccion_cliente']; 
-    echo '   ';
-    echo $row['poblacion_cliente']; 
-    echo '   ';
-    echo $row['provincia_cliente']; 
-    echo '   ';
-    echo $row['cdcliente']; 
-    echo '   ';
-    echo $row['identicliente']; 
-    echo '   ';
-    echo $row['producto']; 
-    echo '   ';
-    echo $row['importe']; 
-    echo '   ';
-    echo $row['iva']; 
-    echo '   ';
-    echo '<br>';
+?>
+  <tbody>
+<?php
+  echo '<tr>';
+    echo '<th>'.$row['id_factura'].'</th>';
+    echo '<td>'.$row['nom_cliente'].'</td>';
+    echo '<td>'.$row['producto'].'</td>';
+    echo '<td><a href="factura.php?id='.$row['id_factura'].'">Ver factura</a></td>';
+  echo '<tr>';
+?>
+    <tbody>
+    <?php
     }
   }
 ?>
-<div><a href="index.php"><span id="btn">Index</span></a></div>
+</table>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

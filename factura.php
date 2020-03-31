@@ -10,6 +10,7 @@ if(isset($_GET['id'])){
 
   while ($row = $res->fetchArray()) {
       echo "<p> {$row['id_factura']}</p>";
+      echo "<p> {$row['producto']}</p>";
       
   }
 }

@@ -9,23 +9,28 @@
    <style>
         body {
             font-family: sans-serif, verdana, arial;
-            background-color: white;
+            background-color: #adadad;
         }
 
         .fac {
             font-family: sans-serif, verdana, arial;
-            background-color: #ff8929;
+            background-color: white;
             margin-left: 500px;
             margin-right: 500px;
         } 
         h1{
             color: blue;
         }
-        a{
-            color: white
+        p{
+            color: red;
         }
         
    </style>
+  <links>
+   <?php
+    include "includes/cabezera.html";
+   ?>
+  </links>
 </head>
 <body>
 <?php
@@ -33,7 +38,7 @@ include "includes/db.php";
 ?>
 <div class="fac">
 <center>
-<h1>Facturadora</h1>
+<h1>Nueva factura</h1>
 </center>
 
 
@@ -45,12 +50,12 @@ include "includes/db.php";
     </div>
   </div>
   <div class="form-group">
-    <label for="inputDireccion">Dirección de la empresa</label>
+    <label for="inputDireccion">Dirección de correo de la empresa</label>
     <p class="form-control">Bahamas
   </div>
   <div class="form-group">
     <label for="inputAddress2">Población de la tienda</label>
-    <p class="form-control" >Marraxi
+    <p class="form-control" >Marratxi
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ciudad</label>
@@ -67,12 +72,11 @@ include "includes/db.php";
   </div>
   
   <form action="listado.php" method="post">
-  
-  <h2>Datos del cliente</h2>
   <div class="form-group col-md-6">
       <label for="inputFechal4">Fecha</label>
       <input type="date" class="form-control" name="fecha" max= "<?php echo date("Y-m-d",strtotime(date("Y-m-d")));?>">
     </div>
+  <h2>Datos del cliente</h2>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Nombre del cliente</label>
@@ -84,7 +88,7 @@ include "includes/db.php";
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Dirección del cliente</label>
+    <label for="inputAddress">Dirección de correo del cliente</label>
     <input type="text" class="form-control" name="direccion_cliente">
   </div>
   <div class="form-group">
@@ -123,11 +127,11 @@ include "includes/db.php";
 </center>
 <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
 </form>
-
+</div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</div>
-<button class="btn btn-primary"><a href="listado.php">Productos</a></button>
+
+
 </body>
 </hmtl>
