@@ -14,8 +14,8 @@
         <h1>Factura<h1>
     </div>        
     <div class="container row col text-center">
-        <button type="button" class="btn btn-primary btn-lg btn-block" href="nueva.php">Crear factura</button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" href="listado.php">Listado</button>
+        <a type="button" class="btn btn-primary btn-lg btn-block" href="nueva.php">Crear factura</a>
+        <a type="button" class="btn btn-primary btn-lg btn-block" href="listado.php">Listado</a>
     </div>
 </body>
 </html>
