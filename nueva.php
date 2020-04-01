@@ -46,35 +46,35 @@ include "includes/db.php";
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputNombretienda4">Nombre de la empresa</label>
-      <p class="form-control">BecariosNo
+      <p>BecariosNo</p>
     </div>
   </div>
   <div class="form-group">
     <label for="inputDireccion">Dirección de correo de la empresa</label>
-    <p class="form-control">Bahamas
+    <p>Bahamas</p>
   </div>
   <div class="form-group">
     <label for="inputAddress2">Población de la tienda</label>
-    <p class="form-control" >Marratxi
+    <p>Marratxi</p>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ciudad</label>
-      <p class="form-control" >Nassau
+      <p>Nassau</p>
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Pais</label>
-      <p class="form-control" >España
+      <p>España</p>
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Zip</label>
-      <p class="form-control" >0708
+      <p>07141</p>
     </div>
   </div>
   
   <form action="listado.php" method="post">
   <div class="form-group col-md-6">
       <label for="inputFechal4">Fecha</label>
-      <input type="date" class="form-control" name="fecha" max= "<?php echo date("Y-m-d",strtotime(date("Y-m-d")));?>">
+      <input required type="date" class="form-control" name="fecha" max= "<?php echo date("Y-m-d",strtotime(date("Y-m-d")));?>">
     </div>
   <h2>Datos del cliente</h2>
   <div class="form-row">

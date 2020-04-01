@@ -53,7 +53,7 @@ if(isset($_POST['enviar'])){
     $stm->bindParam(6, $pro_cliente);
     $stm->bindParam(7, $cd_cliente);
     $stm->bindParam(8, $iden_cliente);
-    $stm->bindParam(9, $podructo);
+    $stm->bindParam(9, $producto);
     $stm->bindParam(10, $importe);
     $stm->bindParam(11, $iva);
     $stm->execute();
