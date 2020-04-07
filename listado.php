@@ -83,7 +83,7 @@ while ($row = $res->fetchArray()) {
     echo '<th>'.$row['id_factura'].'</th>';
     echo '<td>'.$row['nom_cliente'].'</td>';
     echo '<td>'.$row['producto'].'</td>';
-    echo '<td><a href="prueba.php?id='.$row['id_factura'].'">Ver factura</a></td>';
+    echo '<td><a href="factura.php?id='.$row['id_factura'].'">Ver factura</a></td>';
   echo '<tr>';
 ?>
     <tbody>

@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<title>Resumen Factura</title>
+    <title>Factura v2</title>
+    <style>
+    </style>
+    <link rel="stylesheet" type="text/css" href="pruebaestilo.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
+<links>
+   <?php
+    include "includes/cabezera.html";
+   ?>
+</links>
 <?php
 include "includes/db.php";
 ?>
@@ -17,81 +22,114 @@ if(isset($_GET['id'])){
   $stm = $db->prepare("SELECT * FROM facturas where id_factura=?");
   $stm->bindParam(1, $id);
   $res = $stm->execute();
+  $row = $res->fetchArray();
 }
 ?>
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">Resumen de la Factura</th>
-    </tr>
-  </thead>
-<?php
-  while ($row = $res->fetchArray()) {
-?>
-  <tbody>
-<?php
-  echo '<tr>';
-  echo '<th>Id Factura<th>';
-    echo "<td> {$row['id_factura']}</td>";
-  echo '</tr>';
-  echo '<tr>';
-  echo '<th>Fecha<th>';
-    echo "<td> {$row['fecha']}</td>";
-  echo '</tr>';
-  echo '<tr>';
-  echo '<th>Nombre Cliente<th>';
-    echo "<td> {$row['nom_cliente']}</td>";
-  echo '</tr>';
-  echo '<tr>';
-  echo '<th>Apellidos Cliente<th>';
-    echo "<td> {$row['apellidos_cliente']}</td>";
-  echo '</tr>';
-  echo '<tr>';
-  echo '<th>Dirección Cliente<th>';
-    echo "<td> {$row['direccion_cliente']}</td>";
-  echo '</tr>';
-  echo '<th>Población Cliente<th>';
-    echo "<td> {$row['poblacion_cliente']}</td>";
-  echo '</tr>';
-  echo '<th>Provincia Cliente<th>';
-    echo "<td> {$row['provincia_cliente']}</td>";
-  echo '</tr>';
-  echo '<th>C.P Cliente<th>';
-    echo "<td> {$row['cdcliente']}</td>";
-  echo '</tr>';
-  echo '<th>Identificación Fiscal<th>';
-    echo "<td> {$row['identicliente']}</td>";
-  echo '</tr>';
-  echo '<th>Concepto<th>';
-    echo "<td> {$row['producto']}</td>";
-  echo '</tr>';
+<div id="invoice">
 
-?> 
-  </tbody>
-  </table>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">*****</th>
-      </tr>
-    </thead>
-    <tbody>
-<?php
-echo '<tr>';
-echo '<th >Importe<th>';
-  echo "<td> {$row['importe']}</td>";
-echo '</tr>';
-echo '<tr>';
-    echo '<th>IVA<th>';
-    echo "<td> {$row['iva']}</td>";
-  echo '</tr>';
-  }
-}
-?>
-  </tbody>
-  </table>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="toolbar hidden-print">
+        <div class="text-right">
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i>Imprimir</button>
+        </div>
+        <hr>
+    </div>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://lobianijs.com">
+                            <img src="https://cdn-profiles.tunein.com/p1252413/images/logog.png" data-holder-rendered="true" class="foto">
+                        </a>
+                    </div>
+                    <div class="col company-details">
+                        <h2 class="name">
+                            <a target="_blank">
+                            BecariosNO
+                            </a>
+                        </h2>
+                        <div>C/Poligon Can Valero, Palma de Mallorca, España</div>
+                        <div>07705</div>
+                        <div>becariosno@gmail.com</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">Factura a:</div>
+                        <h2 class="to"><?php echo $row['nom_cliente'] ?></h2>
+                        <div class="address"><?php echo $row['poblacion_cliente'] ?></div>
+                        <div class="email"><?php echo $row['direccion_cliente'] ?></a></div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">Factura #<?php echo $row['id_factura'] ?></h1>
+                        <div class="date">Fecha de factura: <?php echo $row['fecha'] ?></div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="text-left">Descripción</th>
+                            <th class="text-right"></th>
+                            <th class="text-right"></th>
+                            <th class="text-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="no">01</td>
+                            <td class="text-left"><h3>
+                                <a target="_blank" href="https://www.youtube.com/channel/UC_UMEcP_kF0z4E6KbxCpV1w">
+                                <?php echo $row['producto'] ?>
+                                </a>
+                                </h3>
+                            </td>
+                            <td class="unit"></td>
+                            <td class="qty"></td>
+                            <td class="total">$0.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">SUBTOTAL</td>
+                            <td>$5,200.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">IVA 21%</td>
+                            <td>$1,300.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">TOTAL</td>
+                            <td>$6,500.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="thanks">Gracias!</div>
+            </main>
+            <footer>
+                La factura ha sido creada en un ordenador, por lo cual no necesita de firma ni sello.
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data)
+            {
+                window.print();
+                return true;
+            }
+        });
+</script>
 </body>
 </html>
