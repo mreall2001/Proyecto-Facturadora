@@ -51,7 +51,7 @@ include "includes/db.php";
   </div>
   <div class="form-group">
     <label for="inputDireccion">Dirección de correo de la empresa</label>
-    <p>Bahamas</p>
+    <p>becariosno@gmail.com</p>
   </div>
   <div class="form-group">
     <label for="inputAddress2">Población de la tienda</label>

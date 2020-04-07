@@ -17,6 +17,7 @@ if(isset($_GET['id'])){
   $stm = $db->prepare("SELECT * FROM facturas where id_factura=?");
   $stm->bindParam(1, $id);
   $res = $stm->execute();
+}
 ?>
 <table class="table table-sm">
   <thead>
