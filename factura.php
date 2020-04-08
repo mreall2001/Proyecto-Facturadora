@@ -43,14 +43,10 @@ if(isset($_GET['id'])){
                         </a>
                     </div>
                     <div class="col company-details">
-                        <h2 class="name">
-                            <a target="_blank">
-                            BecariosNO
-                            </a>
-                        </h2>
-                        <div>C/Poligon Can Valero, Palma de Mallorca, España</div>
-                        <div>07705</div>
-                        <div>becariosno@gmail.com</div>
+                       
+                        <?php
+      include "includes/empresa.php";
+      ?>
                     </div>
                 </div>
             </header>
@@ -88,24 +84,24 @@ if(isset($_GET['id'])){
                             </td>
                             <td class="unit"></td>
                             <td class="qty"></td>
-                            <td class="total">$0.00</td>
+                            <td class="total"></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">SUBTOTAL</td>
-                            <td>$5,200.00</td>
+                            <td><?php echo $row['importe'] ?>€ </td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
-                            <td colspan="2">IVA 21%</td>
-                            <td>$1,300.00</td>
+                            <td colspan="2">IVA <?php echo $row['iva'] ?>%</td>
+                            <td><?php echo $row['importe']*$row['iva']/100 ?>€</td>
                         </tr>
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">TOTAL</td>
-                            <td>$6,500.00</td>
+                            <td><?php echo $row['importe']*(1+$row['iva']/100)?>€</td>
                         </tr>
                     </tfoot>
                 </table>

@@ -7,9 +7,9 @@
 
 <title>Facturadora</title>
    <style>
-        body {
+        body{
             font-family: sans-serif, verdana, arial;
-            background-color: #adadad;
+            background-color: #ccf1ff;
         }
 
         .fac {
@@ -21,8 +21,12 @@
         h1{
             color: blue;
         }
-        p{
-            color: red;
+        p.empresa{
+            color: black;
+            background-color: #ccf1ff;
+        }
+        .name{
+          color: black;
         }
         
    </style>
@@ -45,34 +49,14 @@ include "includes/db.php";
     <h2>Datos de la empresa</h2>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputNombretienda4">Nombre de la empresa</label>
-      <p>BecariosNo</p>
+      <?php
+      include "includes/empresa.php";
+      ?>
+      
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputDireccion">Dirección de correo de la empresa</label>
-    <p>becariosno@gmail.com</p>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Población de la tienda</label>
-    <p>Marratxi</p>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">Ciudad</label>
-      <p>Nassau</p>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">Pais</label>
-      <p>España</p>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <p>07141</p>
-    </div>
-  </div>
-  
   <form action="listado.php" method="post">
-  <div class="form-group col-md-6">
+  <div class="form-group">
       <label for="inputFechal4">Fecha</label>
       <input required type="date" class="form-control" name="fecha" max= "<?php echo date("Y-m-d",strtotime(date("Y-m-d")));?>">
     </div>
@@ -110,22 +94,24 @@ include "includes/db.php";
     </div>
   </div>
   <h2>Datos del Producto</h2>
-<div class="form-group col-md-10">
+<div class="form-group">
       <label for="inputNombretienda4">Descripción del producto</label>
-      <input type="text" class="form-control" name="producto">
+      <textarea  class="form-control" name="producto">
+      </textarea>
     </div>
-  </div>
+  
   <div class="form-row">
-    <div class="form-group col-md-2">
+    
+    <div class="form-group col-md-4 offset-md-6">
       <label for="inputCity">Importe</label>
-      <input type="text" class="form-control" name="importe">
+      <input type="number" class="form-control" name="importe">
     </div>
     <div class="form-group col-md-2">
       <label for="inputState">Iva</label>
       <input type="number" class="form-control" name="iva" value="21">
     </div>
-</center>
-<button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+    
+<button type="submit" class="btn btn-primary btn-lg btn-block" name="enviar">Enviar</button>
 </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -11,6 +11,11 @@
     include "includes/cabezera.html";
    ?>
   </links>
+  <style>
+    body{
+      background-color: #e6f8ff;
+    }
+  </style>
 </head>
 <body>
   <center>
@@ -65,12 +70,14 @@ if(isset($_POST['enviar'])){
       $res = $stm->execute();
 $res = $db->query('SELECT * FROM facturas');
 ?>
-<table class="table table-sm table-dark">
+<table class="table table-sm table-striped">
   <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Fecha</th>
       <th scope="col">Concepto</th>
+      <th scope="col">Importe</th>
       <th scope="col">Factura</th>
     </tr>
   </thead>
@@ -79,10 +86,12 @@ while ($row = $res->fetchArray()) {
 ?>
   <tbody>
 <?php
-  echo '<tr>';
-    echo '<th>'.$row['id_factura'].'</th>';
+  echo '<tr scope="row">';
+    echo '<td>'.$row['id_factura'].'</td>';
     echo '<td>'.$row['nom_cliente'].'</td>';
+    echo '<td>'.$row['fecha'].'</td>';
     echo '<td>'.$row['producto'].'</td>';
+    echo '<td>'.$row['importe']*(1+$row['iva']/100).'€ </td>';
     echo '<td><a href="factura.php?id='.$row['id_factura'].'">Ver factura</a></td>';
   echo '<tr>';
 ?>
