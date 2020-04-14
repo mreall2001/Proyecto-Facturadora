@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,19 +5,7 @@
     <style>
     </style>
     <link rel="stylesheet" type="text/css" href="pruebaestilo.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $('#printInvoice').click(function(){
-    Popup($('.invoice')[0].outerHTML);
-    function Popup(data) 
-    {
-        window.print();
-        return true;
-    }
-    });
-    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 <body>
 <links>
@@ -29,7 +16,6 @@
 <?php
 include "includes/db.php";
 ?>
-
 <?php
 if(isset($_GET['id'])){
   $id = $_GET['id'];
@@ -44,7 +30,6 @@ if(isset($_GET['id'])){
     <div class="toolbar hidden-print">
         <div class="text-right">
             <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i>Imprimir</button>
-            <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i>Exportar como PDF</button>
         </div>
         <hr>
     </div>
@@ -134,5 +119,17 @@ if(isset($_GET['id'])){
         <div></div>
     </div>
 </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data)
+            {
+                window.print();
+                return true;
+            }
+        });
+</script>
 </body>
 </html>
