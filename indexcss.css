@@ -1627,7 +1627,7 @@
 		}
 
 	a {
-		color: #7840CC;
+		color:	#03498c;
 		text-decoration: underline;
 	}
 
@@ -1649,7 +1649,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #7840CC;
+		color:	#03498c;
 		font-weight: 300;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
@@ -1799,7 +1799,7 @@
 		}
 
 		section.wrapper.style1, article.wrapper.style1 {
-			background: #7039BB;
+			background: #03498c;
 			color: #c8b8e0;
 		}
 
@@ -2022,8 +2022,8 @@
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #7840CC;
-			box-shadow: 0 0 0 1px #7840CC;
+			border-color: #03498c;
+			box-shadow: 0 0 0 1px #03498c;
 		}
 
 	.select-wrapper {
@@ -2133,8 +2133,8 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #7840CC;
-			box-shadow: 0 0 0 1px #7840CC;
+			border-color:	#03498c;
+			box-shadow: 0 0 0 1px #03498c;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2655,7 +2655,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #7840CC;
+			background-color:	#033e77;
 			color: #ffffff !important;
 		}
 
@@ -2664,7 +2664,7 @@
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #8C56DD;
+				background-color:	#03498c;
 			}
 
 			input[type="submit"].special:active,
@@ -2672,7 +2672,7 @@
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
-				background-color: #662EBA;
+				background-color:	#03498c;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -2694,7 +2694,7 @@
         .button.bannerSpecial {
             font-size: 1.5em;
             background-color: #fff;
-            color: #7840CC !important;
+            color: #03498c !important;
         }
         .button.bannerSpecial:hover {
             background-color: #c0c5ce;
@@ -2723,7 +2723,7 @@
 	}
 
 		.subpage #header {
-			background: #7840CC;
+			background: #03498c;
 			top: 0;
 			height: 44px;
 			line-height: 44px;
@@ -2911,7 +2911,6 @@
 			right: 0;
 			text-align: right;
 			top: 0;
-			vertical-align: middle;
 			width: 5em;
 		}
 
@@ -2944,7 +2943,7 @@
         top: 0;
         width: 100%;
         height: 2.5em;
-        background-color: #9F3ED3;
+        background-color:	#03498c;
     }
     
         #notification p.notification {
