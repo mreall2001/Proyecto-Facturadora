@@ -1,6 +1,6 @@
 <h2 class="name">
 <a target="_blank">
- BecariosNO</a>
+ Nuestros datos</a>
 </h2>
 <p class="empresa">
       becariosno@gmail.com</br>

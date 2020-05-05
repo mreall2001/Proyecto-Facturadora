@@ -19,14 +19,27 @@
             margin-right: 500px;
         } 
         h1{
-            color: blue;
+            color: black;
         }
         p.empresa{
-            color: black;
-            background-color: #ccf1ff;
+            outline-color: blue;
+            outline-style: dotted;
+            
         }
         .name{
           color: black;
+        }
+        .form-group.col-md-6 h2.name{
+          font-size: 20px;
+        }
+        .form-group.col-md-6 p.empresa{
+          padding-left: 10px;
+          border: 2px;
+        }
+        .datos{
+          color: black;
+          font-size: 20px;
+          text-decoration: underline;
         }
         
    </style>
@@ -42,11 +55,11 @@ include "includes/db.php";
 ?>
 <div class="fac">
 <center>
-<h1>Nueva factura</h1>
+<h1>Becarios No</h1>
 </center>
 
 
-    <h2>Datos de la empresa</h2>
+    
   <div class="form-row">
     <div class="form-group col-md-6">
       <?php
@@ -60,7 +73,7 @@ include "includes/db.php";
       <label for="inputFechal4">Fecha</label>
       <input required type="date" class="form-control" name="fecha" max= "<?php echo date("Y-m-d",strtotime(date("Y-m-d")));?>">
     </div>
-  <h2>Datos del cliente</h2>
+  <h2 class="datos">Datos del cliente</h2>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Nombre del cliente</label>
@@ -93,7 +106,7 @@ include "includes/db.php";
       <input type="number" class="form-control" name="identicliente">
     </div>
   </div>
-  <h2>Datos del Producto</h2>
+  <h2 class="datos">Datos del Producto</h2>
 <div class="form-group">
       <label for="inputNombretienda4">Descripción del producto</label>
       <textarea  class="form-control" name="producto">

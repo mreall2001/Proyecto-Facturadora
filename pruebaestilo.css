@@ -152,11 +152,11 @@
     .invoice footer {
         position: absolute;
         bottom: 10px;
-        page-break-after: always;
+        page-break-after: unset;
     }
 
     .invoice>div:last-child {
-        page-break-before: always;
+        page-break-before: avoid;
     }
 }
 

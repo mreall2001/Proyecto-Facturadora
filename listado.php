@@ -13,8 +13,32 @@
   </links>
   <style>
     body{
-      background-color: #e6f8ff;
+      background-color: white;
     }
+    .importe{
+      text-align: right;
+    }
+    .factura{
+      text-align: right;
+    }
+    .table{
+      width: 80%;
+    }
+    td{
+      font-family: arial;
+      font-size: medium;
+    }
+    th{
+      font-family: arial;
+      color: #03498c;
+      font-size: medium;
+    }
+    .id{
+      color: red;
+    }
+      
+    
+    
   </style>
 </head>
 <body>
@@ -70,32 +94,32 @@ if(isset($_POST['enviar'])){
       $res = $stm->execute();
 $res = $db->query('SELECT * FROM facturas');
 ?>
-<table class="table table-sm table-striped">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
       <th scope="col">Fecha</th>
       <th scope="col">Concepto</th>
-      <th scope="col">Importe</th>
-      <th scope="col">Factura</th>
+      <th scope="col" class="importe">Importe</th>
+      <th scope="col" class="factura">Factura</th>
     </tr>
   </thead>
 <?php
 while ($row = $res->fetchArray()) {
 ?>
-  <tbody>
+  
 <?php
-  echo '<tr scope="row">';
-    echo '<td>'.$row['id_factura'].'</td>';
+  echo '<tr>';
+    echo '<th scope="row" class="id">'.$row['id_factura'].'</th>';
     echo '<td>'.$row['nom_cliente'].'</td>';
     echo '<td>'.$row['fecha'].'</td>';
     echo '<td>'.$row['producto'].'</td>';
-    echo '<td>'.$row['importe']*(1+$row['iva']/100).'€ </td>';
-    echo '<td><a href="factura.php?id='.$row['id_factura'].'">Ver factura</a></td>';
-  echo '<tr>';
+    echo '<td class="importe">'.$row['importe']*(1+$row['iva']/100).'€ </td>';
+    echo '<td class="factura"><a href="factura.php?id='.$row['id_factura'].'">Ver factura</a></td>';
+  echo '</tr>';
 ?>
-    <tbody>
+    
     <?php
     }
   }
