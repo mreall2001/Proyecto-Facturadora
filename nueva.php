@@ -41,6 +41,9 @@
           font-size: 20px;
           text-decoration: underline;
         }
+        .enviar{
+          margin-bottom: 20px;
+        }
         
    </style>
   <links>
@@ -53,20 +56,20 @@
 <?php
 include "includes/db.php";
 ?>
-<div class="fac">
+<div class="container">
 <center>
 <h1>Becarios No</h1>
 </center>
 
 
-    
-  <div class="form-row">
-    <div class="form-group col-md-6">
+  
+  <div class="row">  
+  
+    <div class="form-group col-md-12 col-lx-6">
       <?php
       include "includes/empresa.php";
       ?>
-      
-    </div>
+  </div>
   </div>
   <form action="listado.php" method="post">
   <div class="form-group">
@@ -75,11 +78,11 @@ include "includes/db.php";
     </div>
   <h2 class="datos">Datos del cliente</h2>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-xl-6">
       <label for="inputEmail4">Nombre del cliente</label>
       <input type="text" class="form-control" name="nom_cliente">
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-xl-6">
       <label for="inputPassword4">Apellidos del cliente</label>
       <input type="text" class="form-control" name="apellidos_cliente">
     </div>
@@ -93,15 +96,15 @@ include "includes/db.php";
     <input type="text" class="form-control" name="poblacion_cliente">
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-xl-6">
       <label for="inputCity">Provincia del cliente</label>
       <input type="text" class="form-control" name="provincia_cliente">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-xl-4">
       <label for="inputState">Codigo Postal</label>
       <input type="number" class="form-control" name="cdcliente">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-xl-2">
       <label for="inputZip">Id.Fiscal</label>
       <input type="number" class="form-control" name="identicliente">
     </div>
@@ -115,16 +118,19 @@ include "includes/db.php";
   
   <div class="form-row">
     
-    <div class="form-group col-md-4 offset-md-6">
+    <div class="form-group col-lx-4 offset-md-6">
       <label for="inputCity">Importe</label>
       <input type="number" class="form-control" name="importe">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-lx-2">
       <label for="inputState">Iva</label>
       <input type="number" class="form-control" name="iva" value="21">
     </div>
-    
-<button type="submit" class="btn btn-primary btn-lg btn-block" name="enviar">Enviar</button>
+
+  <div class="col-12 enviar">  
+    <button type="submit" class="btn btn-primary btn-lg btn-block" name="enviar">Enviar</button>
+  </div>
+
 </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
